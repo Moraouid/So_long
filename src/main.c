@@ -6,28 +6,56 @@
 /*   By: sel-abbo <sel-abbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:35:22 by sel-abbo          #+#    #+#             */
-/*   Updated: 2025/01/30 17:04:19 by sel-abbo         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:50:28 by sel-abbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/usr/include/minilibx-linux/mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include "../includes/so_long.h"
+#include "../libft/get_next_line/get_next_line.h"
+#include "../libft/libft/libft.h"
 
-int	main(void)
+typedef struct s_game t_game;
+
+int key_handler(int keycode, t_game *game);
+int close_window(t_game *game);
+
+int main(int argc, char **argv) 
 {
-	void	*mlx;
-    void	*mlx_win;
+    if (argc != 2)
+        exit_with_error("Usage: ./so_long <map_file.ber>");
 
-	mlx = mlx_init();
-	if (mlx == NULL) {
-		fprintf(stderr, "Error initializing MLX\n");
-		return (EXIT_FAILURE);
-	}
-    mlx_win = mlx_new_window(mlx, width, height, "so_long");
-	if (mlx_win == NULL) {
-		fprintf(stderr, "Error creating window\n");
-		return (EXIT_FAILURE);
-	}
-	mlx_loop(mlx);
+    t_map map;
+
+    parse_map(argv[1], &map);
+    validate_map(&map);
+
+    void *mlx = mlx_init();
+    if (!mlx)
+        exit_with_error("Failed to initialize MiniLibX");
+
+    void *win = mlx_new_window(mlx, map.cols * TILE_SIZE, map.rows * TILE_SIZE, "so_long");
+    if (!win)
+        exit_with_error("Failed to create window");
+
+    mlx_key_hook(win, key_handler, &map); 
+    mlx_hook(win, 17, 0, close_window, &map); 
+
+    mlx_loop(mlx);
+
+    for (int i = 0; i < map.rows; i++)
+        free(map.data[i]);
+    free(map.data);
+
+    return 0;
+}
+
+int key_handler(int keycode, t_game *game) {
+    (void)keycode;
+    (void)game; 
+    return 0;
+}
+
+int close_window(t_game *game) {
+    (void)game;
+    return 0;
 }
