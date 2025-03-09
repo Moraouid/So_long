@@ -6,7 +6,7 @@
 /*   By: sel-abbo <sel-abbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 01:52:36 by sel-abbo          #+#    #+#             */
-/*   Updated: 2025/02/17 03:02:14 by sel-abbo         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:53:36 by sel-abbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ void		render_player(t_game *game, int x, int y);
 void		clean_screen(t_game *game);
 void		width_map(t_game *game, const char *filename);
 void		loading_textures(t_game *game);
+void		you_win(void);
 
 #endif

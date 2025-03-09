@@ -6,7 +6,7 @@
 /*   By: sel-abbo <sel-abbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 04:56:55 by sel-abbo          #+#    #+#             */
-/*   Updated: 2025/02/17 03:28:10 by sel-abbo         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:53:31 by sel-abbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "/usr/include/minilibx-linux/mlx.h"
 # include "get_next_line/get_next_line.h"
+# include "ft_printf/ft_printf.h"
 # include <signal.h>
 # include <X11/keysym.h>
 # include <fcntl.h>
@@ -78,5 +79,6 @@ void		clean_screen_helpre(t_game *game);
 int			check_extension(char **av);
 void		textures_collect(t_game *game);
 void		textures_enemy(t_game *game);
+void		you_win(void);
 
 #endif

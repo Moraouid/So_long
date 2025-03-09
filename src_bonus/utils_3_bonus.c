@@ -6,7 +6,7 @@
 /*   By: sel-abbo <sel-abbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 23:43:58 by sel-abbo          #+#    #+#             */
-/*   Updated: 2025/02/16 23:56:17 by sel-abbo         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:53:16 by sel-abbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,13 @@ void	clean_screen_helpre(t_game *game)
 		mlx_destroy_image(game->mlx, game->enemy[2]);
 	if (game->enemy[3])
 		mlx_destroy_image(game->mlx, game->enemy[3]);
+}
+
+void	you_win(void)
+{
+	ft_printf("-----------------------------------------------\n");
+	ft_printf("|    🎉🎉🎉  Congratulations!!!!!  🎉🎉🎉     |\n");
+	ft_printf("|    You found all collectibles and exit.     |\n");
+	ft_printf("|        ✓✓✓✓✓✓✓✓ You won! ✓✓✓✓✓✓✓✓           |\n");
+	ft_printf("-----------------------------------------------\n");
 }
