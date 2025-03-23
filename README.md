@@ -6,9 +6,6 @@ So_long is a project written in C that involves creating a simple game using the
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
